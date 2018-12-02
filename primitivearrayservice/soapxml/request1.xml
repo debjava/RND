@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
+	<soapenv:Body>
+		<tns:getIntData xmlns:tns="http://service.primitivearrayservice/xsd">
+			<tns:inDatas>123</tns:inDatas>
+			<tns:inDatas>11</tns:inDatas>
+			<tns:inDatas>320</tns:inDatas>
+			<tns:inDatas>33</tns:inDatas>
+		</tns:getIntData>
+	</soapenv:Body>
+</soapenv:Envelope>

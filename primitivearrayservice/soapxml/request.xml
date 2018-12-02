@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+		<ns1:getIntData xmlns:ns1="http://service.primitivearrayservice/xsd">
+			<ns1:intDatas>1</ns1:intDatas>
+			<ns1:intDatas>2</ns1:intDatas>
+			<ns1:intDatas>3</ns1:intDatas>
+			<ns1:intDatas>4</ns1:intDatas>
+			<ns1:intDatas>5</ns1:intDatas>
+		</ns1:getIntData>
+	</soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<FCCCPMNT>
+	<ERROR_CPMNT>
+		<XREF>123455676</XREF>
+		<ERROR>
+			<ECODE>error</ECODE>
+			<EDESC>fc error</EDESC>
+		</ERROR>
+	</ERROR_CPMNT>
+</FCCCPMNT>

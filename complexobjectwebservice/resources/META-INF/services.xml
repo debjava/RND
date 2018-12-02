@@ -1,0 +1,9 @@
+<service name="orgservice" scope="application" targetNamespace="http://service.org/">
+    <description>Service for data retrieval</description>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only" class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </messageReceivers>
+    <schema schemaNamespace="http://service.org/xsd"/>
+    <parameter name="ServiceClass">com.ddlab.webservice.server.OrganisationInfoService</parameter>
+</service>

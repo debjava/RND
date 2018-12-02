@@ -1,0 +1,11 @@
+<FCCPC>
+
+	<ERROR_PC_DD>
+		<XREF>P47191985000001</XREF>
+		<ERROR>
+			<ECODE>CS-UDF-0152</ECODE>
+			<EDESC>For field END_DT,the value 20100101 is not a valid date
+			</EDESC>
+		</ERROR>
+	</ERROR_PC_DD>
+</FCCPC>

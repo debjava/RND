@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:axis2="http://service.primitivearrayservice/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://service.primitivearrayservice/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://service.primitivearrayservice/">
+    <wsdl:documentation>primitivearrayservice</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.primitivearrayservice/xsd">
+            <xs:element name="getStringData">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="stringDatas" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getStringDataResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getIntData">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="intDatas" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getIntDataResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getFloatData">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="floatDatas" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getFloatDataResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDoubleData">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="doubleDatas" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDoubleDataResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getFloatDataRequest">
+        <wsdl:part name="parameters" element="ns:getFloatData"/>
+    </wsdl:message>
+    <wsdl:message name="getFloatDataResponse">
+        <wsdl:part name="parameters" element="ns:getFloatDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getIntDataRequest">
+        <wsdl:part name="parameters" element="ns:getIntData"/>
+    </wsdl:message>
+    <wsdl:message name="getIntDataResponse">
+        <wsdl:part name="parameters" element="ns:getIntDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getStringDataRequest">
+        <wsdl:part name="parameters" element="ns:getStringData"/>
+    </wsdl:message>
+    <wsdl:message name="getStringDataResponse">
+        <wsdl:part name="parameters" element="ns:getStringDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getDoubleDataRequest">
+        <wsdl:part name="parameters" element="ns:getDoubleData"/>
+    </wsdl:message>
+    <wsdl:message name="getDoubleDataResponse">
+        <wsdl:part name="parameters" element="ns:getDoubleDataResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="primitivearrayservicePortType">
+        <wsdl:operation name="getFloatData">
+            <wsdl:input message="axis2:getFloatDataRequest" wsaw:Action="urn:getFloatData"/>
+            <wsdl:output message="axis2:getFloatDataResponse" wsaw:Action="urn:getFloatDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getIntData">
+            <wsdl:input message="axis2:getIntDataRequest" wsaw:Action="urn:getIntData"/>
+            <wsdl:output message="axis2:getIntDataResponse" wsaw:Action="urn:getIntDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getStringData">
+            <wsdl:input message="axis2:getStringDataRequest" wsaw:Action="urn:getStringData"/>
+            <wsdl:output message="axis2:getStringDataResponse" wsaw:Action="urn:getStringDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getDoubleData">
+            <wsdl:input message="axis2:getDoubleDataRequest" wsaw:Action="urn:getDoubleData"/>
+            <wsdl:output message="axis2:getDoubleDataResponse" wsaw:Action="urn:getDoubleDataResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="primitivearrayserviceSoap11Binding" type="axis2:primitivearrayservicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getFloatData">
+            <soap:operation soapAction="urn:getFloatData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIntData">
+            <soap:operation soapAction="urn:getIntData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getStringData">
+            <soap:operation soapAction="urn:getStringData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDoubleData">
+            <soap:operation soapAction="urn:getDoubleData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="primitivearrayserviceSoap12Binding" type="axis2:primitivearrayservicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getFloatData">
+            <soap12:operation soapAction="urn:getFloatData" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIntData">
+            <soap12:operation soapAction="urn:getIntData" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getStringData">
+            <soap12:operation soapAction="urn:getStringData" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDoubleData">
+            <soap12:operation soapAction="urn:getDoubleData" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="primitivearrayserviceHttpBinding" type="axis2:primitivearrayservicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getFloatData">
+            <http:operation location="primitivearrayservice/getFloatData"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getFloatData"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getFloatData"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIntData">
+            <http:operation location="primitivearrayservice/getIntData"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getIntData"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getIntData"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getStringData">
+            <http:operation location="primitivearrayservice/getStringData"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getStringData"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getStringData"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDoubleData">
+            <http:operation location="primitivearrayservice/getDoubleData"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getDoubleData"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getDoubleData"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="primitivearrayservice">
+        <wsdl:port name="primitivearrayserviceHttpSoap11Endpoint" binding="axis2:primitivearrayserviceSoap11Binding">
+            <soap:address location="http://localhost:8080/primitivearrayservice/services/primitivearrayservice.primitivearrayserviceHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="primitivearrayserviceHttpSoap12Endpoint" binding="axis2:primitivearrayserviceSoap12Binding">
+            <soap12:address location="http://localhost:8080/primitivearrayservice/services/primitivearrayservice.primitivearrayserviceHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="primitivearrayserviceHttpEndpoint" binding="axis2:primitivearrayserviceHttpBinding">
+            <http:address location="http://localhost:8080/primitivearrayservice/services/primitivearrayservice.primitivearrayserviceHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+		<tns:getEmp xmlns:tns="http://service.org/xsd">
+			<tns:Employee>
+				<tns:id>123</tns:id>
+				<tns:name>DDDDDDDDDDD</tns:name>
+				<tns:salary>23.45</tns:salary>
+				<tns:adrs>
+					<tns:permanetAdrs>PIKU</tns:permanetAdrs>
+					<tns:temporaryAdrs>DEBA</tns:temporaryAdrs>
+				</tns:adrs>
+			</tns:Employee>
+		</tns:getEmp>
+	</soapenv:Body>
+</soapenv:Envelope>

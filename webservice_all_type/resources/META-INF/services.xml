@@ -1,0 +1,9 @@
+<service name="Calculator" scope="application" targetNamespace="http://service.test1/">
+    <description>Service for calculation</description>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only" class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </messageReceivers>
+    <schema schemaNamespace="http://service.test1/xsd"/>
+    <parameter name="ServiceClass">com.webservice.generic.test.CalculatorGeneric</parameter>
+</service>

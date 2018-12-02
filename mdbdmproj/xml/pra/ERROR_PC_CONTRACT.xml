@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<FCCPC>
+	<ERROR_PC_CONTRACT>
+		<XREF>P47191985000001</XREF>
+		<ERROR>
+			<ECODE>IF-DAT025</ECODE>
+			<EDESC>Failed while executing the statement</EDESC>
+		</ERROR>
+	</ERROR_PC_CONTRACT>
+</FCCPC>
+

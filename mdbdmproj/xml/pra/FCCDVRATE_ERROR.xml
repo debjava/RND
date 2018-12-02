@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<FCCDVRATE> 
+<ERROR_DVINT_FLTRATE>
+    <XREF>6638</XREF>
+    <ERROR>
+        <ECODE>IF-MNT-007</ECODE>
+        <EDESC>Upload request sent already exits</EDESC>
+    </ERROR>
+</ERROR_DVINT_FLTRATE>
+</FCCDVRATE>

@@ -1,0 +1,62 @@
+<!-- ANT Script to generate the *.AAR file. -->
+
+<project basedir="." default="generate.service">
+
+	<property name="lib.dir"				value="${basedir}/lib" />
+    <property name="build.dir" 				value="${basedir}/build"/>
+	<property name="class.name"				value="com.webservice.inttype.test.CalculatorInt"/>
+
+    <path id="axis2.classpath">
+        <fileset dir="${lib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <!-- Compile the services -->
+    	
+    <target name="compile.service">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.dir}/classes"/>
+
+        <javac debug="on" 
+               fork="true"
+               destdir="${build.dir}/classes" 
+               srcdir="${basedir}/src"
+               classpathref="axis2.classpath">
+        </javac>
+    </target>
+
+    <!-- Generate the WSDL -->
+    	
+    <target name="generate.wsdl" depends="compile.service">
+        <taskdef name="java2wsdl"
+                 classname="org.apache.ws.java2wsdl.Java2WSDLTask"
+                 classpathref="axis2.classpath"/>
+        <java2wsdl className="com.webservice.inttype.test.CalculatorInt"
+                   outputLocation="${build.dir}"
+                   targetNamespace="http://service.test/"
+                   schemaTargetNamespace="http://service.test1/xsd">
+            <classpath>
+                <pathelement path="${axis2.classpath}"/>
+                <pathelement location="${build.dir}/classes"/>
+            </classpath>
+        </java2wsdl>
+    </target>
+	
+    <!-- Generate the Services -->
+	
+    <target name="generate.service" depends="compile.service">
+        <copy toDir="${build.dir}/classes" failonerror="false">
+            <fileset dir="${basedir}/resources">
+                <include name="**/*.xml"/>
+            </fileset>
+        </copy>
+        <jar destfile="${build.dir}/CalculatorService.aar">
+            <fileset dir="${build.dir}/classes"/>
+        </jar>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+</project>

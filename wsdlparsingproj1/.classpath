@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/ant-1_5_1.jar"/>
+	<classpathentry kind="lib" path="lib/apache_soap-2_3_1.jar"/>
+	<classpathentry kind="lib" path="lib/axis-1_0-ant.jar"/>
+	<classpathentry kind="lib" path="lib/axis-1_0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-discovery.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/jaxrpc-1_1.jar"/>
+	<classpathentry kind="lib" path="lib/junit-3_8_1.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1_2_4.jar"/>
+	<classpathentry kind="lib" path="lib/optional-1_5_1.jar"/>
+	<classpathentry kind="lib" path="lib/qname-from-wsdl4j-20021124.jar"/>
+	<classpathentry kind="lib" path="lib/saaj-1_1.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-2_2.jar"/>
+	<classpathentry kind="lib" path="lib/soaprmi-1_1.jar"/>
+	<classpathentry kind="lib" path="lib/wsdl4j-20021124.jar"/>
+	<classpathentry kind="lib" path="lib/xercesImpl-2_2_1.jar"/>
+	<classpathentry kind="lib" path="lib/xmlParserAPIs-2_2_1.jar"/>
+	<classpathentry kind="lib" path="lib/wsif-j2c.jar"/>
+	<classpathentry kind="lib" path="lib/wsif.jar"/>
+	<classpathentry kind="lib" path="lib/wom-0.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/relaxngDatatype.jar"/>
+	<classpathentry kind="lib" path="lib/xsom.jar"/>
+	<classpathentry kind="lib" path="lib/xsom14.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,38 @@
+<project name="testucwebservice" basedir="." default="generate.client">
+
+    <property name="build.dir"            value="clientbuild"/>
+	<property name="client.target"		  value="${build.dir}/client"/>
+	<property name="lib.dir"              value="lib"/>
+	<property name="wsdl.uri"             value="${basedir}/wsdlsrc/*.wsdl"/>
+	<property name="package.name"         value="com.ddlab.webservice.client"/>
+	
+
+	<path id="axis2.classpath">
+        <fileset dir="${lib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+	<target name="init">
+		<echo message="deleting the old directories and creation of new directories"/>
+		<delete dir="${build.dir}"/>
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.dir}/client"/>
+    </target>
+
+	<target name="generate.client">
+		<delete dir="${client.target}"/>
+		<mkdir dir="${client.target}"/>
+         <java classname="org.apache.axis2.wsdl.WSDL2Java" fork="true" classpathref="axis2.classpath">
+            <arg line="-uri ${wsdl.uri}"/>
+			<arg line="-s"/>
+			<arg line="-l java"/>
+            <arg line="-p ${package.name}"/>
+            <arg line="-d adb"/>
+            <arg line="-o ${build.dir}/client"/>
+        </java>
+		<echo>${client.target}/build.xml</echo>
+		<ant antfile="${client.target}/build.xml" inheritAll="false" />
+    </target>
+
+</project>

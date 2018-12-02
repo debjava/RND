@@ -1,0 +1,92 @@
+<!-- ANT Script to generate the *.AAR file. -->
+
+<project basedir="." default="create.war">
+
+	<property name="server.src.dir"			value="${basedir}/serversrc" />
+	<property name="lib.dir"				value="${basedir}/lib" />
+	<property name="build.dir" 				value="${basedir}/build"/>
+	<property name="dist.dir" 				value="${basedir}/dist"/>
+	<property name="web.dir" 				value="${basedir}/web"/>
+	<property name="webinf.dir" 			value="${web.dir}/WEB-INF"/>
+	<property name="services.dir" 			value="${webinf.dir}/services"/>
+	<property name="class.name"				value="com.ddlab.webservice.server.OrganisationInfoService"/>
+	<property name="target.namespace"		value="http://service.org/"/>
+	<property name="schema.namespace"		value="http://service.org/xsd"/>
+	<property name="aar.file.name" 			value="org.aar"/>
+	<property name="war.file.name" 			value="orgservice.war"/>
+
+	<!-- Create classpath setting -->
+	<path id="axis2.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<!-- Delete and Create the required directories -->
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+		<delete dir="${dist.dir}"/>
+		<delete dir="${services.dir}"/>
+		<mkdir dir="${services.dir}"/>
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${build.dir}/classes"/>
+	</target>
+
+	<!-- Compile the services -->
+	<target name="compile.service" depends="clean">
+		<javac debug="on" 
+               fork="true"
+               destdir="${build.dir}/classes" 
+               srcdir="${server.src.dir}"
+               classpathref="axis2.classpath">
+		</javac>
+	</target>
+
+	<!-- Generate the WSDL -->
+	<target name="generate.wsdl" depends="compile.service">
+		<taskdef name="java2wsdl"
+                 classname="org.apache.ws.java2wsdl.Java2WSDLTask"
+                 classpathref="axis2.classpath"/>
+		<java2wsdl className="${class.name}"
+                   outputLocation="${build.dir}"
+                   targetNamespace="${target.namespace}"
+                   schemaTargetNamespace="${schema.namespace}">
+			<classpath>
+				<pathelement path="${axis2.classpath}"/>
+				<pathelement location="${build.dir}/classes"/>
+			</classpath>
+		</java2wsdl>
+	</target>
+
+	<!-- Generate the Services -->
+	<target name="generate.service" depends="compile.service">
+		<copy toDir="${build.dir}/classes" failonerror="false">
+			<fileset dir="${basedir}/resources">
+				<include name="**/*.xml"/>
+			</fileset>
+		</copy>
+		<jar destfile="${build.dir}/${aar.file.name}">
+			<fileset dir="${build.dir}/classes"/>
+		</jar>
+	</target>
+
+	<!-- create the .war file to deploy into server -->
+	<target name="create.war" depends="generate.service">
+		<delete dir="${webinf.dir}/lib"/>
+		<mkdir dir="${webinf.dir}/lib"/>
+		<copy toDir="${webinf.dir}/lib" >
+			<fileset dir="${lib.dir}">
+				<include name="**/*.jar"/>
+			</fileset>
+		</copy>
+		<copy toDir="${services.dir}" >
+			<fileset dir="${build.dir}">
+				<include name="**/*.aar"/>
+			</fileset>
+		</copy>
+		<jar destfile="${dist.dir}/${war.file.name}">
+			<fileset dir="${web.dir}"/>
+		</jar>
+	</target>
+</project>
